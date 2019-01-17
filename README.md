@@ -1,5 +1,5 @@
 # Simulator for "Nonlinear precoding for phase-quantized constant-envelope massive MU-MIMO-OFDM"
-(c) 2018 Sven Jacobsson and Christoph Studer;
+(c) 2019 Sven Jacobsson and Christoph Studer;
 e-mail: sven.jacobsson@ericsson.com and studer@cornell.edu
 
 ### Important information
@@ -10,8 +10,7 @@ The software package is supplied "as is," without any accompanying support servi
 
 If you are using the simulator (or parts of it) for a publication, then you *must* cite our paper:
 
-[1] S. Jacobsson, O. Castaneda, C. Jeon, G. Durisi, and C. Studer, “Nonlinear precoding for phase-quantized constant-envelope massive MU-MIMO-OFDM,” in IEEE Int. Conf. Telecommunications (ICT), Saint- Malo, France, Jun. 2018, to appear.
-
+[1] S. Jacobsson, G. Durisi, M. Coldrey, and C. Studer, “Linear precoding with low-resolution DACs for massive MU-MIMO-OFDM downlink,” IEEE Trans. Wireless Commun., to appear.
 
 and clearly mention this in your paper.
 
@@ -20,19 +19,10 @@ and clearly mention this in your paper.
 Simply run
 
 ```sh
-precoder_sim_ofdm
+precoder_linear_ofdm_sim
 ```
 
-which starts a simulation for a massive MU-MIMO-OFDM system (with 128 BS antennas, 16 users, 600 occupied subcarriers, and OSR = 1.7) with 16-QAM modulation using ZF precoding (for 2-phase-bit quantization and infinite resolution) and with the SQUID-OFDM precoder proposed in the paper.
-
-The following precoders are currently supported by the simulator:
-  - MRT: maximal-ratio transmission (phase-quantized)
-  - MRT_inf: maximal-ratio transmission (infinite resolution)
-  - SQUID: squared infinity-norm Douglas-Rachford splitting
-  - WF: Wiener filter (phase-quantized)
-  - WF_inf: Wiener filter (infinite resolution)
-  - ZF: zero-forcing (phase-quantized)
-  - ZF_inf: zero-forcing (infinite resolution)
+which starts a simulation for a massive MU-MIMO-OFDM system (with 32 BS antennas, 8 users, 300 occupied subcarriers, and OSR = 1.7) with QPSK modulation using ZF precoding (for the case of 1-bit DACs and infinite resolution). 
 
 The simulator runs with predefined parameters. You can specify your own system and simulation parameters by passing your own "par"-structure (see the simulator for an example). Note that we use default parameters for the considered system configuration; if you want to run the simulation with different parameters, then please refer to the MATLAB code for other parameter settings.
 

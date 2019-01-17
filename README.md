@@ -1,4 +1,4 @@
-# Simulator for "Nonlinear precoding for phase-quantized constant-envelope massive MU-MIMO-OFDM"
+# Simulator for "Linear precoding with low-resolution DACs for massive MU-MIMO-OFDM downlink"
 (c) 2019 Sven Jacobsson and Christoph Studer;
 e-mail: sven.jacobsson@ericsson.com and studer@cornell.edu
 

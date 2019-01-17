@@ -476,7 +476,21 @@ function res = precoder_linear_ofdm_sim(varargin)
         if length(par.SNRdB_list) > 1
             axis([min(par.SNRdB_list) max(par.SNRdB_list) 1e-4 1]);
         end
-        legend(par.precoder,'FontSize',12,'location','southwest')
+        if strcmpi(par.mod, 'QPSK') && ~strcmpi(par.approximation, 'none')
+            leg = [par.precoder, par.precoder]; 
+            for i = 1:length(leg)/2
+                leg{i} = [par.precoder{i}, ' (simulated)'];
+                leg{i + length(leg)/2} = [par.precoder{i}, ' (analytical)'];
+            end
+            legend(leg,'FontSize',12,'location','southwest');
+        else
+            leg = [par.precoder, par.precoder]; 
+            for i = 1:length(leg)
+                leg{i} = [par.precoder{i}, ' (simulated)'];
+            end
+            legend(leg,'FontSize',12,'location','southwest');
+        end
+        
         set(gca,'FontSize',12);
         
         % plot coded BER
@@ -500,10 +514,6 @@ function res = precoder_linear_ofdm_sim(varargin)
     % save final results
     if par.save
         save(par.simName,'par','res');
-    end
-    
-    if nargin == 0
-       keyboard; 
     end
     
 end
